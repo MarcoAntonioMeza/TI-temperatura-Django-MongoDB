@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block titulo %} Personal {% endblock %}
+
+{% block contenido %}
+<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+    <div class="card">
+        <div class="card-header">
+            <a name="" id="" class="btn btn-success" href="{% url 'crear_personal' %}" role="button">Nuevo personal</a>
+
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">Total de docentes {{total}}  </h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Grado</th>
+                        <th>Nombre</th>
+                        <th>Cargo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for personal in docentes%}
+                    <tr>
+                        <td> {{personal.grado}}</td>
+                        <td>{{personal.nombre}}</td>
+                        <td>{{personal.cargo}}</td>
+                        <td class="text-center">
+                            <a class="btn btn-primary" role="button" href="{%url 'actualizar_personal' personal.nombre%}">Editar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+
+
+    {%endblock%}

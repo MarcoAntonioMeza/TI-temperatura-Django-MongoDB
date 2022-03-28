@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block titulo %} Editar grupo {% endblock %}
+
+{% block contenido %}
+<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="card">
+        <div class="card-header">
+            Agregar Grupo
+        </div>
+        <div class="card-body">
+            <form enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                <input id="" name="id" type="hidden" value="{{grupo.id}}">
+                <div class="form-group">
+                    <label for="">Grado</label>
+                    <input type="text" class="form-control" name="grado" id="" aria-describedby="helpId"
+                        placeholder="" value="{{grupo.grado}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="grupo">Grupo</label>
+                    <input type="text" class="form-control" name="grupo" id="grupo" aria-describedby="helpId"
+                        placeholder="" value="{{grupo.grupo}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Tutor</label>
+                    <select class="form-control" name="tutor" id="">
+                        <option value="{{grupo.tutor}}">{{grupo.tutor}}</option>
+                        {% for tutor in tutores%}
+                        <option value="{{tutor.nombre}}">{{tutor.nombre}}</option>
+                        {%endfor%}
+                    </select>
+                </div>
+                <center>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a name="" id="" class="btn btn-danger" href="{% url 'grupos'%}" role="button">Cancelar</a>
+                </center>
+            </form>
+
+        </div>
+    </div>
+</div>
+<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+
+{% endblock%}

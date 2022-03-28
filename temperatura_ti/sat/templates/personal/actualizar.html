@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block titulo %} Agrgar personal {% endblock %}
+
+{% block contenido %}
+<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+
+<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="card">
+        <div class="card-header">
+            Agregar personal
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">Informacion del personal</h4>
+            <form nctype="multipart/form-data" method="post">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="" aria-describedby="helpId"
+                        placeholder="nombre" required value="{{docente.nombre}}">
+                </div>
+                <div class="form-group">
+                    <label for="">Grado</label>
+                    <input type="text" class="form-control" name="grado" id="" aria-describedby="helpId"
+                        placeholder="Lic. Mtro " required value="{{docente.grado}}">
+                </div>
+                <div class="form-group">
+                    <label for="">Cargo</label>
+                    <select class="form-control" name="cargo" id="">
+                        <option value=" {{docente.cargo}}">{{docente.cargo}}</option>
+                        {% for cargo in cargos%}
+                        <option value=" {{cargo.nombre}}">{{cargo.nombre}}</option>
+                        {%endfor%}
+                    </select>
+                </div>
+
+                <input name="" id="" class="btn btn-primary" type="submit" value="Actualizar">
+                <a name="" id="" class="btn btn-danger" href="{% url 'personal' %}" role="button">Cancelar</a>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+{%endblock%}
