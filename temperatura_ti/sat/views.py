@@ -91,7 +91,8 @@ def grupo_crear(request):
         json = {
             "grado": grupo['grado'],
             "grupo": grupo['grupo'].upper(),
-            "tutor": grupo['tutor']
+            "tutor": grupo['tutor'],
+            "nombre" : f"{grupo['grado']}° '{grupo['grupo'].upper()}'"
         }
         coleccion = get_db('grupos')
         coleccion.insert_one(json)
@@ -110,7 +111,8 @@ def actualizar_grupo(request, id):
         json = {
             "grado" : datos['grado'],
             "grupo" : datos['grupo'].upper(),
-            "tutor": datos['tutor']
+            "tutor": datos['tutor'],
+            "nombre" : f"{datos['grado']}° '{datos['grupo'].upper()}'"
         }
         coleccion_grupo.update_one({"_id":ObjectId(datos['id'])},{"$set":json})
         return redirect('grupos')
@@ -128,4 +130,53 @@ def actualizar_grupo(request, id):
     collections = get_db('personal')
     tutores = collections.find({},{"nombre":1})
     return render(request,"grupo/editar-grupo.html",{'tutores':tutores,'grupo': grupo_final})
-    
+
+'''//////////////////////////////////////////////CRUD estudiante//////////////////////////////////////////////////////'''
+def estudiante(request):
+
+    colec_estudiantes = get_db('estudiantes')
+    estudiantes_col = colec_estudiantes.find({},{"_id":0})
+    estudiantes = []
+    for i in estudiantes_col:
+        estudiantes.append(
+            {   
+                "nombre": i['nombre'],
+                "matricula": i['matricula'],
+                "grupo" : i['grupo']
+            }
+        )
+
+    return render(request,'estudiante/index.html',{"estudiantes": estudiantes})
+
+
+def crear_estudiante(request):
+    if request.POST:
+        info = request.POST
+        estudiante = {
+            "matricula": info['matricula'],
+            "nombre" : f"{info['nombre']} {info['apellidos']}",
+            "grupo": info['grupo']
+        }
+        colec_estudiante = get_db('estudiantes')
+        colec_estudiante.insert_one(estudiante)
+        return redirect('estudiantes')
+
+    coleccion = get_db('grupos')
+    grupos = coleccion.find({},{"nombre":1})
+    return render(request,"estudiante/crear.html",{"grupos": grupos})
+
+def editar_estudiante(request,matricula):
+    col_estudiante = get_db('estudiantes')
+    if request.POST:
+        datos = request.POST
+        student = {
+            "nombre": datos['nombre'],
+            "grupo": datos['grupo']
+        }
+        col_estudiante.update_one({"matricula":datos['matricula']},{"$set":student})
+        return redirect('estudiantes')
+
+    estudiante = col_estudiante.find_one({"matricula": matricula},{"_id":0})
+    coleccion = get_db('grupos')
+    grupos = coleccion.find({},{"nombre":1})
+    return render(request,"estudiante/editar.html",{"grupos": grupos, "estudiante": estudiante})

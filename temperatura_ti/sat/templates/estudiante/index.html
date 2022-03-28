@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block titulo %} Agregar estudiante {% endblock %}
+
+{% block contenido %}
+<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+    <div class="card ">
+        <div class="card-header">
+            <a name="" id="" class="btn btn-success" href="{% url 'crear_estudiante'%}" role="button">Agregar estudiante</a>
+        </div>
+        <div class="card-body ">
+            <h3 class="card-title text-center">Listado de estudiantes</h3>
+            <!--
+            <br>
+            <form method="post">
+                <div class="form-inline">
+                  <label class="my-1 mr-2" for="matricula">Buscar por matricula: </label>
+                  <input type="text"
+                    class="form-control mb-2 mr-sm-2" name="matricula" id="matricula" aria-describedby="helpId" placeholder="">  
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                </div>
+                
+            </form>
+            <br>
+            -->
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Matricula</th>
+                        <th>Nombre</th>
+                        <th>Grupo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for estudiante in estudiantes%}
+                    <tr>
+                        <td class="text-center">{{ estudiante.matricula}}</td>
+                        <td>{{ estudiante.nombre}}</td>
+                        <td class="text-center">{{ estudiante.grupo}}</td>
+                        <td>
+                            <a name="" id="" class="btn btn-primary" href="{% url 'editar_estudiante' estudiante.matricula%}" role="button">Editar</a>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+
+
+{%endblock%}

@@ -21,6 +21,12 @@ urlpatterns = [
     path('personal/editar<str:id>', views.actualizar_grupo, name='editar_grupo'),
 
 
+    #url para crud de estudiantes
+    path('estudiantes', views.estudiante, name='estudiantes'),
+    path('estudiantes/crear',views.crear_estudiante, name ='crear_estudiante'),
+    path('estudiantes/editar', views.editar_estudiante, name="editar_estudiante"),
+    path('estudiantes/editar<str:matricula>', views.editar_estudiante, name="editar_estudiante")
+
 
     #path('nosotros' ,views.index ,name='nosotros'),
     #path('libros', views.libros, name='libros'),
