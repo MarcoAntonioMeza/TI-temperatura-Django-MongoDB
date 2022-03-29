@@ -25,7 +25,11 @@ urlpatterns = [
     path('estudiantes', views.estudiante, name='estudiantes'),
     path('estudiantes/crear',views.crear_estudiante, name ='crear_estudiante'),
     path('estudiantes/editar', views.editar_estudiante, name="editar_estudiante"),
-    path('estudiantes/editar<str:matricula>', views.editar_estudiante, name="editar_estudiante")
+    path('estudiantes/editar<str:matricula>', views.editar_estudiante, name="editar_estudiante"),
+
+    #url para docentes
+    path('grupos-tic',views.inicio_personal,name='grupos-tic')
+
 
 
     #path('nosotros' ,views.index ,name='nosotros'),

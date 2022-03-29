@@ -1,0 +1,42 @@
+//Personal
+{
+    _id:"",
+    nombre: "",
+    grado: "",
+    correo: "",
+    contraseña:"",
+    cargo:"",
+}
+
+//cargo
+{
+    _id:"",
+    nombre ""
+}
+
+//Grupo
+{
+    _id:"",
+    grado:"",
+    grupo:"",
+    tutor:"",
+}
+
+//Estudoante
+{
+    _id:"",
+    nombre: "",
+    matricula:""
+    grupo: ""
+}
+
+//temperatura
+
+{
+    _id:"",
+    fecha:"",
+    nombre:"",
+    grupo:"",
+    temperatura:""
+}
+

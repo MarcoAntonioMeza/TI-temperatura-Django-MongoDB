@@ -180,3 +180,18 @@ def editar_estudiante(request,matricula):
     coleccion = get_db('grupos')
     grupos = coleccion.find({},{"nombre":1})
     return render(request,"estudiante/editar.html",{"grupos": grupos, "estudiante": estudiante})
+
+"""/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////"""
+
+def inicio_personal(request):
+    colec_grupos = get_db('temperatura')
+    grupos = colec_grupos.aggregate([{'$group':{'_id': '$grupo' , 'promedio':{'$avg': '$temperatura'}}}])
+    grupos_formato = []
+    for i in grupos:
+        grupos_formato.append(
+            {
+                "nombre": i['_id'],
+                "promedio" : "{0:.2f}".format(i['promedio'])
+            }
+        )
+    return render(request,'vista-personal/index.html',{'grupos':grupos_formato})

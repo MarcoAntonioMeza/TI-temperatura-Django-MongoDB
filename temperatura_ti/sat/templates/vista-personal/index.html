@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block titulo %} Inicio {% endblock %}
+
+{% block conte %}
+{% if grupos%}
+<div class="row">
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <div class="card text-center">
+            <div class="card-header">
+                Grupos de TIC's
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Grupo</th>
+                            <th>Promedio de temperatura</th>
+                            <th>Ver</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for grupo in grupos%}
+                        <tr>
+                            <td>{{grupo.nombre}}</td>
+                            <td>{{grupo.promedio}}</td>
+                            <td>
+                                <a name="" id="" class="btn btn-primary" href="#" role="button">Ver alumnos</a>
+
+                            </td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+    </div>
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+
+</div>
+{%else%}
+<div class="row">
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <div class="alert alert-warning text-center" role="alert">
+            ¡Sin grupos! :(
+        </div>
+    </div>
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+</div>
+{%endif%}
+
+
+
+{%endblock%}
