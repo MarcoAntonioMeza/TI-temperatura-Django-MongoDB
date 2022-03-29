@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block titulo %} Mis grupos {% endblock %}
+
+{% block conte%}
+{%if total %}
+<div class="row">
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+        <form enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            <div class="form-row text-center">
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4">Mis grupos</label>
+                </div>
+                <div class="form-group col-md-6 ">
+                    <select class="form-control" name="grupo">
+                        {%for grupo in grupos%}
+                        <option value="{{grupo.nombre}}">{{grupo.nombre}}</option>
+                        {%endfor%}
+                    </select>
+                </div>
+                <div class="form-group  col-md-3">
+                    <button type="submit" class="btn btn-success mb-2">Ver alumnos</button>
+                </div>
+            </div>
+    </div>
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+</div>
+<div class="row">
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+        {%if alumnos %}
+        <div class="card ">
+            <div class="card-header">
+                <h5 class="card-title text-center">Alumnos del {{grupo}}</h5>
+            </div>
+            <div class="card-body ">
+               
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Alumno</th>
+                                <th>Promedio de temperatura acumulado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for alumno in alumnos%}
+                            <tr>
+                                <td>{{alumno.nombre}}</td>
+                                <td class="text-center">{{alumno.promedio}}</td>
+                            </tr>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {%else%}
+        <div class="alert alert-secondary text-center" role="alert">
+            Selecciona grupo para ver los resultados
+        </div>
+        {%endif%}
+    </div>
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+</div>
+{%else%}
+
+<div class="row">
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-"></div>
+    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+        <div class="alert alert-danger text-center" role="alert">
+            Sin grupos tutorados
+        </div>
+    </div>
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+</div>
+
+{%endif%}
+
+
+{% endblock%}

@@ -27,9 +27,12 @@ urlpatterns = [
     path('estudiantes/editar', views.editar_estudiante, name="editar_estudiante"),
     path('estudiantes/editar<str:matricula>', views.editar_estudiante, name="editar_estudiante"),
 
-    #url para docentes
-    path('grupos-tic',views.inicio_personal,name='grupos-tic')
+    #url para director
+    path('grupos-tic',views.inicio_personal,name='grupos-tic'),
+    path('grupos-tic/temperatura-alumnos<str:grupo>', views.ver_alunos_grupo, name='ver-grupo-alumnos'),
 
+    #url para tutor
+    path('mis-grupos',views.ver_alumnos_tutor, name='mis_grupos')
 
 
     #path('nosotros' ,views.index ,name='nosotros'),

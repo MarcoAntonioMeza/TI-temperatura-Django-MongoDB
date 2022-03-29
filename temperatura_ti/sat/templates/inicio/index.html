@@ -1,36 +1,87 @@
+
 {% extends "base.html" %}
+{% load static%}
 
 {% block titulo %} Temperatura {% endblock %}
+{% block heade%}
+<header>
+    <div class="conte">
+        <div class="textos">
+            <h1>Covid19</h1>
+            <h2>La importancia de tomar la temperatura para el control del Covid19</h2>
+        </div>
+        <img src= '{% static "img/img1.png"%}' alt="img">
+    </div>
+</header>
+{%endblock%}
 
-{% block contenido %}
-
-<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-        </div>
-    </div>
-</div>
-<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-        </div>
-    </div>
-</div>
-<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-        </div>
-    </div>
+{% block inicio %}
+<div class="wave">
+    <div style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+            style="height: 100%; width: 100%;">
+            <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                style="stroke: none; fill: #fff;"></path>
+        </svg></div>
 </div>
 
 
+
+<!--Cuerpo-->
+
+<section class="w-50 mx-auto text-justify pt-3" id="intro">
+    <h1 class="p-3 fs-2 border-top border-3">¿Por qué la toma de temperatura es fundamental para el control del
+        <span class="text-primary">Covid19?</span>
+    </h1>
+    <p class="p-3 fs-4"><span class="text-primary">La fiebre</span> es el principal síntoma que indica una alta carga
+        viral o bacteriana en una determinada enfermedad.</p>
+</section>
+
+
+
+<section class="container-fluid">
+    <div class="row w-75 mx-auto my-5 servicio-fila">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <img src="{% static 'img/img2.jpg'%}"  class="img" alt="" width="150" height="130">
+            <div>
+                <h3 class="fs-5 mt-4 px-4 pb-1">¿Donde se realiza?</h3>
+                <p class="px-4">En diversos puntos del país se están realizando controles de salud preventivos con el
+                    fin de evitar la propagación del COVID-19. Una de las principales herramientas es la toma de
+                    temperatura corporal a cientos de personas, con el objetivo de saber si están enfermos y pueden ser
+                    posibles portadores del virus.</p>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <img src="{% static 'img/img3.jpg'%}" class="img" alt="" width="150" height="130">
+            <div>
+                <h3 class="fs-5 mt-4 px-4 pb-1">¿Qué tan efectiva es la toma de temperatura corporal?</h3>
+                <p class="px-4">Esta duda surge a raíz de que de acuerdo con diversos informes del Departamento de
+                    Epidemiología del Ministerio de Salud, no todos los casos confirmados y hospitalizados con el virus
+                    han presentado un cuadro febril alto.</p>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <img src="{% static 'img/img4.jpg'%}" alt="" class="img" width="150" height="130">
+            <div>
+                <h3 class="fs-5 mt-4 px-4 pb-1">¿Qué dicen los expertos?</h3>
+                <p class="px-4">Erika Buñay, aclaró la duda: “La fiebre es un síntoma que aparecerá cuando realmente la
+                    respuesta frente al huésped adverso está afectándonos y esta respuesta se dará con temperatura
+                    elevada. En la actual contingencia, esta sintomatología, sumada a los contactos que la persona ha
+                    tenido, a los viajes que ha realizado, a las áreas contaminadas a las que está expuesto, va a
+                    hacernos sospechar que estamos frente a un paciente con COVID”.</p>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <img src="{% static 'img/img5.jpg'%}" class="img" alt="" width="150" height="130">
+            <div>
+                <h3 class="fs-5 mt-4 px-4 pb-1">¿Porqué su improtancia?</h3>
+                <p class="px-4">permiten identificar quienes pudieran estar enfermos, evitando su circulación y ayudando
+                    así a evitar la propagación de la enfermedad. “Hay que tener en claro que esto tiene que ver con la
+                    carga viral que tiene que tener el virus en la persona, entonces si esta carga viral es mínima,
+                    obviamente el cuerpo no va a responder con temperatura, pero si la carga viral es muy superior a los
+                    elementos inmunológicos que tiene el cuerpo, obviamente, la temperatura va a aumentar y será la
+                    respuesta frente al agente adverso”, detalló la docente.</p>
+            </div>
+        </div>
+    </div>
+</section>
 {%endblock%}

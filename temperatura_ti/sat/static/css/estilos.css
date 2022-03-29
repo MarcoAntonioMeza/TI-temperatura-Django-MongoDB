@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    
+    
+}
+
+
+header{
+    background: #7F7FD5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: auto;
+    padding: 48px;
+    width: 100%;
+}
+
+.conte{
+    width: 95%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+    
+}
+
+.img{
+    display: block;
+    height: 350px;
+    object-fit: cover;
+    width: auto;
+}
+
+.textos{
+    width: 50%;
+    color: #fff;
+
+}
+
+.textos h1{
+    font-size: 60px;
+
+}
+
+.textos h2{
+    font-size: 20px;
+    
+}
+
+.wave{
+    height: 100px;
+    width: 100%;
+    background: #7F7FD5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/*/*
+pie de pagina
+**/
+.footer{
+    color: #fff;
+    background: #222222;
+}
+
+/*/*
+media querys
+**/
+
+@media screen and (max-width:800px) {
+  header  .container{
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 20px 0;
+    }
+
+    .textos{
+        width: 100%;
+        text-align: center;
+    }
+    header img{
+        height: 250px;
+    }
+    #intro{
+        width: 90% !important ;
+    }
+    .servicio-fila{
+        width: 100% !important;
+        text-align: justify;
+    }
+    .container-fluid img{
+        width: 250px;
+        height: 230px;
+    }
+}
+
+
+@media screen and (max-width:450px) {
+  header  .container{
+        width: 95%;
+    }
+
+    .textos h1{
+        font-size: 35px;
+    }
+
+    .textos h2{
+        font-size: 20px;
+    }
+    header img{
+        height: 150px;
+    }
+    .container-fluid img{
+        width: 150px;
+        height: 130px;
+    }
+}
+
+@media screen and (max-width:200px) {
+      header img{
+          height: 100px;
+      }
+  }

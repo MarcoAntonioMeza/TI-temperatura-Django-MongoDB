@@ -11,28 +11,32 @@
         </div>
         <div class="card-body text-center">
             <h2>Listado de grupos</h2>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Grado</th>
-                        <th>Grupo</th>
-                        <th>Tutor</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for grupo in grupos%}
-                    <tr>
-                        <td>{{grupo.grado}}</td>
-                        <td>{{grupo.grupo}}</td>
-                        <td>{{grupo.tutor}}</td>
-                        <td>
-                            <a name="" id="" class="btn btn-primary" href="{% url 'editar_grupo' grupo.id%}" role="button">Ediar grupo</a>
-                        </td>
-                    </tr>
-                    {%endfor%}
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Grado</th>
+                            <th>Grupo</th>
+                            <th>Tutor</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for grupo in grupos%}
+                        <tr>
+                            <td>{{grupo.grado}}</td>
+                            <td>{{grupo.grupo}}</td>
+                            <td>{{grupo.tutor}}</td>
+                            <td>
+                                <a name="" id="" class="btn btn-primary" href="{% url 'editar_grupo' grupo.id%}"
+                                    role="button">Ediar grupo</a>
+                            </td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+
         </div>
 
     </div>

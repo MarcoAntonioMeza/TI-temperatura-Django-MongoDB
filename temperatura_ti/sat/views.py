@@ -1,3 +1,4 @@
+from functools import total_ordering
 from http.client import HTTPResponse
 from typing import Collection
 from unittest.case import doModuleCleanups
@@ -195,3 +196,56 @@ def inicio_personal(request):
             }
         )
     return render(request,'vista-personal/index.html',{'grupos':grupos_formato})
+
+def ver_alunos_grupo(request,grupo):
+    col_temp= get_db('temperatura')
+    match = {'$match': {'grupo':grupo}}
+    group = {'$group':{'_id': '$estudiante' , 'promedio':{'$avg': '$temperatura'}}}
+    alumnos_promedio = col_temp.aggregate([match,group])
+    alumnos = []
+    for i in alumnos_promedio:
+        alumnos.append(
+            {
+                "nombre": i['_id'],
+                "promedio" : "{0:.2f}".format(i['promedio'])  
+            }
+        )
+    datos_template  = { "grupo": grupo,"alumnos": alumnos}
+
+    return render(request, "vista-personal/vista-alumnos.html",datos_template)
+
+def ver_alumnos_tutor(request):
+    docente = 'Manuel Méndez Montero'
+    colec_grupos = get_db('grupos')
+    grupos = colec_grupos.find({'tutor': docente},{'nombre':1})       
+    total = colec_grupos.count_documents({'tutor': docente})
+    alumnos = None
+    datos_template = {
+        'grupos': grupos,
+        'total' : total,
+        'alumnos' : alumnos
+    }
+    if request.POST:
+        datos = request.POST
+
+        col_temp= get_db('temperatura')
+        match = {'$match': {'grupo':datos['grupo']}}
+        group = {'$group':{'_id': '$estudiante' , 'promedio':{'$avg': '$temperatura'}}}
+
+        alumnos_promedio = col_temp.aggregate([match,group])
+        alumnos = []
+        for i in alumnos_promedio:
+            alumnos.append(
+                {
+                    "nombre": i['_id'],
+                    "promedio" : "{0:.2f}".format(i['promedio'])  
+                }
+            )
+        datos_template = {
+        'grupos': grupos,
+        'total' : total,
+        'alumnos' : alumnos,
+        'grupo' : datos['grupo']
+        }
+
+    return render(request,'vista-docente/index.html',datos_template)

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block titulo %} Grupo {{grupo}} {% endblock %}
+
+{% block contenido %}
+<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+    <div class="card ">
+        <div class="card-header">
+            <a name="" id="" class="btn btn-success" href="{%url 'grupos-tic' %}" role="button">Regresar</a>
+        </div>
+        <div class="card-body ">
+            <h5 class="card-title text-center">Alumnos del {{grupo}}</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Alumno</th>
+                            <th>Promedio de temperatura acumulado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for alumno in alumnos%}
+                        <tr>
+                            <td>{{alumno.nombre}}</td>
+                            <td class="text-center">{{alumno.promedio}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+
+
+
+{% endblock %}

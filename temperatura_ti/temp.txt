@@ -40,3 +40,107 @@
     temperatura:""
 }
 
+{
+	"_id" : ObjectId("6240c6eaa4495a5ad31ec4e4"),
+	"nombre" : "Manuel Méndez Montero",
+	"grado" : "Mtro.",
+	"inicio_sesion" : {
+		"correo" : "profeM@gmail.com",
+		"contraseña" : "1234"
+	},
+	"cargo" : " Técnico académico",
+	"rol" : "Docente"
+}
+{
+	"_id" : ObjectId("6240cb0fc6aa8c60adc0f6da"),
+	"nombre" : "Antonia Alameda Bermeo",
+	"grado" : "Mtra.",
+	"inicio_sesion" : {
+		"correo" : "profaA@gmail.com",
+		"contraseña" : "1234"
+	},
+	"cargo" : "   Profesor de Asignatura",
+	"rol" : "Docente"
+}
+{
+	"_id" : ObjectId("62412d4972c8d76cccf882c3"),
+	"nombre" : "Heidy Flores López",
+	"grado" : "Mtra.",
+	"inicio_sesion" : {
+		"correo" : "profaH@gmail.com",
+		"contraseña" : "1234"
+	},
+	"cargo" : " Técnico académico",
+	"rol" : "Docente"
+}
+
+{
+	"nombre" : "Tomás González Alvarado",
+	"grado" : "Mtro.",
+	"inicio_sesion" : {
+		"correo" : "profeT@gmail.com",
+		"contraseña" : "1234"
+	},
+	"cargo" : "Director",
+	"rol" : "Director"
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+> db.grupos.find().pretty()
+{
+	"_id" : ObjectId("624225693620ced61828985a"),
+	"grado" : "5",
+	"grupo" : "A",
+	"tutor" : "Manuel Méndez Montero",
+	"nombre" : "5° 'A'"
+}
+{
+	"_id" : ObjectId("624225753620ced61828985e"),
+	"grado" : "5",
+	"grupo" : "B",
+	"tutor" : "Antonia Alameda Bermeo",
+	"nombre" : "5° 'B'"
+}
+{
+	"_id" : ObjectId("6242257e3620ced618289862"),
+	"grado" : "5",
+	"grupo" : "C",
+	"tutor" : "Heidy Flores López",
+	"nombre" : "5° 'C'"
+}
+{
+	"_id" : ObjectId("62435a6ae76c835195b60943"),
+	"grado" : "8",
+	"grupo" : "A",
+	"tutor" : "Antonia Alameda Bermeo",
+	"nombre" : "8° 'A'"
+}
+/*************************************************************************************************
+> db.grupos.find().pretty()
+{
+	"_id" : ObjectId("624225693620ced61828985a"),
+	"grado" : "5",
+	"grupo" : "A",
+	"tutor" : "Manuel Méndez Montero",
+	"nombre" : "5° 'A'"
+}
+{
+	"_id" : ObjectId("624225753620ced61828985e"),
+	"grado" : "5",
+	"grupo" : "B",
+	"tutor" : "Antonia Alameda Bermeo",
+	"nombre" : "5° 'B'"
+}
+{
+	"_id" : ObjectId("6242257e3620ced618289862"),
+	"grado" : "5",
+	"grupo" : "C",
+	"tutor" : "Heidy Flores López",
+	"nombre" : "5° 'C'"
+}
+{
+	"_id" : ObjectId("62435a6ae76c835195b60943"),
+	"grado" : "8",
+	"grupo" : "A",
+	"tutor" : "Antonia Alameda Bermeo",
+	"nombre" : "8° 'A'"
+}
