@@ -11,10 +11,9 @@
         {% csrf_token %}
         <div class="card">
             <div class="card-header text-center">
-                <img src="{% static 'img/user.png'%}" width="100%" height="100%" alt="usuario">
+                <img src="{% static 'img/user.png'%}" width="70%" height="70%" alt="usuario">
             </div>
             <div class="card-body text center">
-
 
                 <div class="form-group">
                     <label for="">Correo</label>
@@ -31,6 +30,13 @@
                     <input name="" id="" class="btn btn-primary" type="submit" value="iniciar sesión">
                     <a name="" id="" class="btn btn-danger" href="{% url 'index'%}" role="button">Cancelar</a>
                 </center>
+                {%if msg%}
+                <br>
+                <div class="alert alert-danger text-center" role="alert">
+                    {{msg}}
+                </div>
+                {%endif%}
+
             </div>
 
         </div>

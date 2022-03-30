@@ -10,12 +10,30 @@ from utils import get_db
 
 # Create your views here.
 
+
+def acceso(correo,contraseña):
+    col_per = get_db('personal')
+    filtro = {
+        'inicio_sesion':{
+            'correo':correo, 'contraseña':contraseña
+            }
+    }
+    return  col_per.find_one(filtro,{ 'nombre':1, 'rol':1})
+
 def index (request):
     return render(request, 'inicio/index.html')
 
 def login(request):
     if request.POST:
-        print(request.POST)
+        datos = request.POST
+        try:
+            dic = acceso(datos['correo'],datos['contraseña'])
+            request.session['rol'] = dic['rol']
+            request.session['nombre'] = dic['nombre']
+            print(request.session['rol'])
+        except:
+            return render(request, 'inicio/login.html',{"msg":"Coreo o contraseña incorrecto"})
+            
     return render(request, 'inicio/login.html')
 
 '''----------------------------------------- views para CRUD de personal-----------------------------------------'''
