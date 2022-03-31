@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block titulo %} Agrgar personal {% endblock %}
+{%block nav%}
+{%include "nav-direc.html"%}
+{%endblock%}
 
 {% block contenido %}
 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
@@ -11,7 +14,7 @@
             Agregar personal
         </div>
         <div class="card-body">
-            <h4 class="card-title">Informacion del personal</h4>
+            <h4 class="card-title">Información del personal</h4>
             <form nctype="multipart/form-data" method="post">
                 {% csrf_token %}
 

@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block titulo %} Editar estudiante {% endblock %}
+{%block nav%}
+{%include "nav-direc.html"%}
+{%endblock%}
 
 {% block contenido %}
 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
@@ -37,7 +40,7 @@
                 </div>
                 <center>
                     <button type="submit" class="btn btn-primary">Guardar</button>
-                    <a href="" class="btn btn-danger">Cancelar</a>
+                    <a href="{%url 'estudiantes'%}" class="btn btn-danger">Cancelar</a>
                 </center>
 
             </form>

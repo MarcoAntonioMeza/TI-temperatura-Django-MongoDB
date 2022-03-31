@@ -32,7 +32,11 @@ urlpatterns = [
     path('grupos-tic/temperatura-alumnos<str:grupo>', views.ver_alunos_grupo, name='ver-grupo-alumnos'),
 
     #url para tutor
-    path('mis-grupos',views.ver_alumnos_tutor, name='mis_grupos')
+    path('mis-grupos',views.ver_alumnos_tutor, name='mis_grupos'),
+
+    #cierre sesion
+
+    path('cierre-sesion', views.cerrar_sesion, name = 'cierre-sesion'),
 
 
     #path('nosotros' ,views.index ,name='nosotros'),

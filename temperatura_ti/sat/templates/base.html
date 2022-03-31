@@ -15,6 +15,8 @@
 </head>
 
 <body>
+    {% block nav %}
+    {% endblock%}
 
     <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="{% url 'index'%}">Temperatura</a>
@@ -50,7 +52,7 @@
             </ul>
 
         </div>
-    </nav>-->
+    </nav>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #7f7fd5;">
         <a class="navbar-brand" href="{% url 'index'%}">Temperatura</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -84,7 +86,7 @@
 
             </ul>
         </div>
-    </nav>
+    </nav>-->
 
     {% block heade %}
 

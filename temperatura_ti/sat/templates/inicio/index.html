@@ -1,6 +1,30 @@
 
+
 {% extends "base.html" %}
 {% load static%}
+
+{% block nav%}
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #7f7fd5;">
+    <a class="navbar-brand" href="{% url 'index'%}">Temperatura</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login'%}">Iniciar Sesión</a>
+            </li>
+            
+
+        </ul>
+    </div>
+</nav>
+
+{% endblock %}
 
 {% block titulo %} Temperatura {% endblock %}
 {% block heade%}
@@ -73,7 +97,7 @@
         <div class="col-lg-6 col-md-12 col-sm-12">
             <img src="{% static 'img/img5.jpg'%}" class="img" alt="" width="150" height="130">
             <div>
-                <h3 class="fs-5 mt-4 px-4 pb-1">¿Porqué su improtancia?</h3>
+                <h3 class="fs-5 mt-4 px-4 pb-1">¿Porqué su importancia?</h3>
                 <p class="px-4">permiten identificar quienes pudieran estar enfermos, evitando su circulación y ayudando
                     así a evitar la propagación de la enfermedad. “Hay que tener en claro que esto tiene que ver con la
                     carga viral que tiene que tener el virus en la persona, entonces si esta carga viral es mínima,
